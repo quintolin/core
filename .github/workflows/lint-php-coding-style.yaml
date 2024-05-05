@@ -1,4 +1,4 @@
-name: 'Check coding standard compliance'
+name: 'lint-php-coding-style'
 on:
   push:
   pull_request:
@@ -6,7 +6,7 @@ permissions:
   contents: 'read'
 jobs:
   main:
-    name: 'Check coding standard compliance'
+    name: 'lint-php-coding-style'
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v4'

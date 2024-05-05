@@ -1,4 +1,4 @@
-name: 'Validate `composer.json` file'
+name: 'lint-composer-json-file'
 on:
   push:
   pull_request:
@@ -6,7 +6,7 @@ permissions:
   contents: 'read'
 jobs:
   main:
-    name: 'Validate `composer.json` file'
+    name: 'lint-composer-json-file'
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v4'
