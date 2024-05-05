@@ -14,7 +14,7 @@ $rules = $factory->create();
 $finder = Finder::create();
 $finder->files();
 $finder->in(dirs: __DIR__);
-$finder->append(iterator: [__FILE__, __DIR__ . '/test.php']);
+$finder->append(iterator: [__FILE__]);
 
 $config = new Config(name: 'Quintolin');
 $config->setFinder(finder: $finder);
