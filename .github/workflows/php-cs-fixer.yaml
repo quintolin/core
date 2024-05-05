@@ -1,12 +1,12 @@
-name: 'PHP Coding Standards Fixer'
+name: 'Check coding standard compliance'
 on:
   push:
   pull_request:
 permissions:
   contents: 'read'
 jobs:
-  php-cs-fixer:
-    name: 'Execute `php-cs-fixer`'
+  main:
+    name: 'Check coding standard compliance'
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v4'
@@ -16,7 +16,7 @@ jobs:
           path: '.php-cs-fixer.cache'
       - name: 'Install dependencies'
         run: 'composer install'
-      - name: 'Execute `php-cs-fixer`'
+      - name: 'Execute `php-cs-fixer` tool'
         uses: 'docker://ghcr.io/php-cs-fixer/php-cs-fixer:3.54-php8.3'
         with:
           args: 'check -vvv --show-progress=dots'

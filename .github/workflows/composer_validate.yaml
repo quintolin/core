@@ -1,14 +1,14 @@
-name: 'Validate Composer File'
+name: 'Validate `composer.json` file'
 on:
   push:
   pull_request:
 permissions:
   contents: 'read'
 jobs:
-  validate:
+  main:
     name: 'Validate `composer.json` file'
     runs-on: 'ubuntu-latest'
     steps:
       - uses: 'actions/checkout@v4'
-      - name: 'Validate files'
+      - name: 'Execute validation command'
         run: 'composer validate --strict --no-check-version'
