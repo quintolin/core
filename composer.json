@@ -1,0 +1,31 @@
+{
+  "name": "quintolin/core",
+  "description": "Core engine for Quintolin game",
+  "type": "library",
+  "keywords": [
+    "quintolin",
+    "game",
+    "pbbg"
+  ],
+  "homepage": "https://github.com/quintolin",
+  "readme": "README.md",
+  "license": "AGPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Krzysztof Sikorski",
+      "homepage": "https://zerozero.pl/",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "chat": "https://discord.gg/ZKTSKne"
+  },
+  "require": {
+    "php": "^8.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Quintolin\\Core\\": "src/"
+    }
+  }
+}
