@@ -13,5 +13,6 @@ lint-php-coding-style:
   interruptible: true
   script:
     - 'curl -sS https://getcomposer.org/installer | php'
+    - 'php composer.phar config notify-on-install false'
     - 'php composer.phar install'
     - 'php-cs-fixer check -vvv --show-progress=dots'
