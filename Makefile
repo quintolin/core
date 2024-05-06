@@ -24,6 +24,11 @@ git_push_current_branch:
 git_push_tags:
 	git remote | xargs -L1 git push --verbose --tags
 
+# remove temporary files
+.PHONY: clean_cache
+clean_cache:
+	if test -e .php-cs-fixer.cache; then rm --verbose .php-cs-fixer.cache; fi
+
 # lint all files against EditorConfig settings
 .PHONY: lint_editorconfig
 lint_editorconfig:
