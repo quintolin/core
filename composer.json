@@ -26,6 +26,9 @@
   "require-dev": {
     "quintolin/coding-standard": "^1.0"
   },
+  "suggest": {
+    "quintolin/storage-implementation": "Implementation of storage interfaces"
+  },
   "autoload": {
     "psr-4": {
       "Quintolin\\Core\\": "src/"
