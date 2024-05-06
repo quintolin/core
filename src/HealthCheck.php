@@ -4,10 +4,15 @@ declare(strict_types=1);
 
 namespace Quintolin\Core;
 
-final class HealthCheck
+final readonly class HealthCheck
 {
-    public function __invoke(): bool
+    public function __construct(private StorageHealthCheckInterface $storageHealthCheck) {}
+
+    public function __invoke(): array
     {
-        return true;
+        return [
+            'core' => true,
+            'storage' => ($this->storageHealthCheck)(),
+        ];
     }
 }
