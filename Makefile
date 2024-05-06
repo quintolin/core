@@ -29,6 +29,17 @@ git_push_tags:
 clean_cache:
 	if test -e .php-cs-fixer.cache; then rm --verbose .php-cs-fixer.cache; fi
 
+# uninstall dependencies
+.PHONY: composer_uninstall
+composer_uninstall:
+	if test -e composer.lock; then rm --verbose composer.lock; fi
+	if test -e vendor; then rm --verbose --recursive vendor; fi
+
+# install dependencies
+.PHONY: composer_install
+composer_install:
+	composer install --verbose --optimize-autoloader
+
 # lint all files against EditorConfig settings
 .PHONY: lint_editorconfig
 lint_editorconfig:
@@ -36,10 +47,10 @@ lint_editorconfig:
 
 # lint PHP coding style
 .PHONY: lint_coding_style
-lint_coding_style:
+lint_coding_style: composer_install
 	docker container run --rm ${DOCKER_USER_ARGS} ${PHP_CS_FIXER_DOCKER_RUN_ARGS} check ${PHP_CS_FIXER_COMMON_ARGS}
 
 # fix PHP coding style
 .PHONY: fix_coding_style
-fix_coding_style:
+fix_coding_style: composer_install
 	docker container run --rm ${DOCKER_USER_ARGS} ${PHP_CS_FIXER_DOCKER_RUN_ARGS} fix ${PHP_CS_FIXER_COMMON_ARGS}
