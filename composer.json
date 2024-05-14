@@ -1,6 +1,7 @@
 {
   "name": "quintolin/core",
   "description": "Core engine for Quintolin game",
+  "version": "0.0.2",
   "type": "library",
   "keywords": [
     "quintolin",
