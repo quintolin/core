@@ -6,9 +6,4 @@ permissions:
   contents: 'read'
 jobs:
   main:
-    name: 'lint-editorconfig'
-    runs-on: 'ubuntu-latest'
-    steps:
-      - uses: 'actions/checkout@v4'
-      - name: 'Execute `editorconfig-checker` tool'
-        uses: 'docker://mstruebing/editorconfig-checker:v3.0.1'
+    uses: 'quintolin/.github/.github/workflows/lint-editorconfig.yaml@main'
